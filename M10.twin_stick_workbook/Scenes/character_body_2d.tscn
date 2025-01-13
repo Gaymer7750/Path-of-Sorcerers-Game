@@ -1,13 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://bn11sffm7s2la"]
+[gd_scene load_steps=5 format=3 uid="uid://bn11sffm7s2la"]
 
 [ext_resource type="Script" path="res://Scenes/character_body_2d.gd" id="1_euq2t"]
 [ext_resource type="Texture2D" uid="uid://bw03btxpkxde4" path="res://player/godot_bottom.png" id="1_f11ci"]
+[ext_resource type="PackedScene" uid="uid://00wgnd58oy5e" path="res://common/shadow.tscn" id="2_t3h6v"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dnyb8"]
 radius = 20.025
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+motion_mode = 1
 script = ExtResource("1_euq2t")
+
+[node name="Shadow" parent="." instance=ExtResource("2_t3h6v")]
+position = Vector2(0, 8)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1, -49)
