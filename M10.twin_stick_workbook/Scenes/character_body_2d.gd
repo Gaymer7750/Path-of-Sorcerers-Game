@@ -1,21 +1,33 @@
 extends CharacterBody2D
 
+const GODOT_DOWN = preload("res://player/godot_bottom.png")
+const GODOT_DOWN_RIGHT = preload("res://player/godot_bottom_right.png")
+const GODOT_RIGHT = preload("res://player/godot_right.png")
+const GODOT_UP = preload("res://player/godot_up.png")
+const GODOT_UP_RIGHT = preload("res://player/godot_up_right.png")
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const UP_RIGHT = Vector2.UP + Vector2.RIGHT
+const UP_LEFT = Vector2.UP + Vector2.LEFT
+const DOWN_RIGHT = Vector2.DOWN + Vector2.RIGHT
+const DOWN_LEFT = Vector2.DOWN + Vector2.LEFT
+
+var max_speed := 600.0
+
+@onready var _skin: Sprite2D = %Skin
 
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	#if not is_on_floor():
-		#velocity += get_gravity() * delta
-	
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	velocity = direction * SPEED
+	velocity = direction * max_speed
 	move_and_slide()
+	
+	var direction_discrete := direction.sign()
+	match direction_discrete:
+		Vector2.RIGHT, Vector2.LEFT:
+			_skin.texture = GODOT_RIGHT
+		Vector2.UP:
+			_skin.texture = GODOT_UP
+		Vector2.DOWN:
+			_skin.texture = GODOT_DOWN
+		Vector2.
+		

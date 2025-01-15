@@ -14,7 +14,7 @@ script = ExtResource("1_euq2t")
 [node name="Shadow" parent="." instance=ExtResource("2_t3h6v")]
 position = Vector2(0, 8)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Skin" type="Sprite2D" parent="."]
 position = Vector2(-1, -49)
 texture = ExtResource("1_f11ci")
 
