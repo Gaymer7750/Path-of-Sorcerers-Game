@@ -12,7 +12,6 @@ radius = 328.002
 [node name="CharacterBody2D" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_twxb6")
-max_speed = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_b3duu")
@@ -25,3 +24,6 @@ texture = ExtResource("2_mh20q")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("CircleShape2D_o0biq")
 debug_color = Color(3.34509e-06, 0.646863, 0.226395, 0.42)
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="body_exited" from="HitBox" to="." method="_on_hit_box_body_exited"]

@@ -1,6 +1,6 @@
 extends CharacterBody2D
-
-var max_speed := 600.0
+class_name Player
+var max_speed := 800.0
 
 
 
