@@ -11,6 +11,7 @@ func _ready() -> void:
 func _on_hit_box_body_entered(body: Node2D) -> void:
 		if body is Player:
 			_Player = body
+
 func hurt():
 	health -= 1
 	print(health)
