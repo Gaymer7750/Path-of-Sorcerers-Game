@@ -1,0 +1,91 @@
+[gd_scene load_steps=8 format=3 uid="uid://rqwxu2aqsp17"]
+
+[ext_resource type="Script" path="res://chest.gd" id="1_asvyk"]
+[ext_resource type="Texture2D" uid="uid://w4kafn2xajre" path="res://pickups/chest/chest_large_bottom.png" id="2_chefv"]
+[ext_resource type="Texture2D" uid="uid://br78bw4ewb5gl" path="res://pickups/chest/chest_large_top.png" id="3_de24m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6curp"]
+size = Vector2(115, 71)
+
+[sub_resource type="Animation" id="Animation_clykp"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ChestLargeTop:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.433333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 2), Vector2(38, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ChestLargeTop:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.433333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.436332]
+}
+
+[sub_resource type="Animation" id="Animation_ypsu4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ChestLargeTop:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ChestLargeTop:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qatkp"]
+_data = {
+"RESET": SubResource("Animation_ypsu4"),
+"open": SubResource("Animation_clykp")
+}
+
+[node name="Chest" type="Area2D"]
+script = ExtResource("1_asvyk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.5, 5.5)
+shape = SubResource("RectangleShape2D_6curp")
+
+[node name="ChestLargeBottom" type="Sprite2D" parent="."]
+position = Vector2(0, 2)
+texture = ExtResource("2_chefv")
+
+[node name="ChestLargeTop" type="Sprite2D" parent="."]
+position = Vector2(0, 2)
+texture = ExtResource("3_de24m")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qatkp")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
