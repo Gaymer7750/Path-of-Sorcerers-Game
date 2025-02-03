@@ -1,11 +1,14 @@
 extends CharacterBody2D
+@onready var mob_collision: CollisionShape2D = $MobCollision
 
 @export var health := 3: set = set_health
 @export var max_speed = 600.0
-@onready var _area: Area2D = %Area2D
-@onready var _Hit_Box: Area2D = %HitBox
 @onready var _Player: Player = null
 var acceleration = 700
+var damage = 10
+
+
+
 func _ready() -> void:
 	Sgn.Damage.connect(hurt)
 func _on_hit_box_body_entered(body: Node2D) -> void:
@@ -37,3 +40,10 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 func get_global_player_position() -> Vector2:
 	return get_tree().root.get_node("Node2D/Player").global_position
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body is Player:
+		body.health -= damage
+		if body.health <= 0:
+			body.player_die()

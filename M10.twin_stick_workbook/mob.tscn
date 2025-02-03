@@ -15,7 +15,13 @@ collision_mask = 9
 motion_mode = 1
 script = ExtResource("1_twxb6")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="MobCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_b3duu")
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(1.2, 1.2)
+
+[node name="MobCollision" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_b3duu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -27,5 +33,6 @@ texture = ExtResource("2_mh20q")
 shape = SubResource("CircleShape2D_o0biq")
 debug_color = Color(3.34509e-06, 0.646863, 0.226395, 0.42)
 
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
 [connection signal="body_exited" from="HitBox" to="." method="_on_hit_box_body_exited"]
