@@ -17,6 +17,7 @@ position = Vector2(910, 493)
 position = Vector2(753, 37)
 
 [node name="Pickup" parent="." instance=ExtResource("4_s804d")]
+position = Vector2(397, 353)
 
 [node name="Chest" parent="." instance=ExtResource("5_63nan")]
 position = Vector2(327, 937)

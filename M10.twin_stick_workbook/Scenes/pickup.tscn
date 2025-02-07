@@ -8,28 +8,28 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_ktu6u"]
 radius = 20.3961
 
-[sub_resource type="Animation" id="Animation_r8etc"]
+[sub_resource type="Animation" id="Animation_ttlxq"]
 resource_name = "Idle"
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("Sprite2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6, 1),
+"times": PackedFloat32Array(0, 0.433333, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 15), Vector2(0, 0)]
+"values": [Vector2(0, 0), Vector2(0, 7), Vector2(0, -7)]
 }
 
-[sub_resource type="Animation" id="Animation_bg747"]
+[sub_resource type="Animation" id="Animation_dc4qb"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("Sprite2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -41,7 +41,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:scale")
+tracks/1/path = NodePath("Sprite2D:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -51,27 +51,26 @@ tracks/1/keys = {
 "values": [Vector2(1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_f8iaq"]
+[sub_resource type="Animation" id="Animation_6rdsh"]
 resource_name = "picked"
-length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
+tracks/0/path = NodePath("Sprite2D:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333, 0.2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
+"values": [Vector2(1, 1), Vector2(0.5, 0.5), Vector2(1e-05, 1e-05)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_cv8l3"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_av2q4"]
 _data = {
-"Idle": SubResource("Animation_r8etc"),
-"RESET": SubResource("Animation_bg747"),
-"picked": SubResource("Animation_f8iaq")
+"Idle": SubResource("Animation_ttlxq"),
+"RESET": SubResource("Animation_dc4qb"),
+"picked": SubResource("Animation_6rdsh")
 }
 
 [node name="Pickup" type="Area2D"]
@@ -89,7 +88,7 @@ stream = ExtResource("4_wuprb")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_cv8l3")
+"": SubResource("AnimationLibrary_av2q4")
 }
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

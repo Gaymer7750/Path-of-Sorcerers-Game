@@ -1,9 +1,12 @@
+@tool
 extends Area2D
 class_name Pickup
 
-@onready var sprite2d: Sprite2D = %Sprite2D
+@onready var sprite2d: Sprite2D = $Sprite2D
+
 @onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
+
 
 @export var item: Item = null: set = set_item
 # Called when the node enters the scene tree for the first time.
@@ -21,9 +24,9 @@ func _on_body_entered(body: Node2D) -> void:
 		audio.play()
 		_animation_player.play("picked")
 		await _animation_player.animation_finished
+		set_deferred("monitoring", false)
 		item.use(body)
 		queue_free()
-		
 func set_item(value: Item) -> void:
 	item = value
 	if sprite2d != null:
