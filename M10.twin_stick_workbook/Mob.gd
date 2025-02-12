@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name mob
 @onready var mob_collision: CollisionShape2D = $MobCollision
 
 @export var health := 3: set = set_health

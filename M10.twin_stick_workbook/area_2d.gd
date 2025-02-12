@@ -25,5 +25,6 @@ func _destroy():
 
 
 func _on_body_entered(body: Node2D) -> void:
-	Sgn.Damage.emit()
+	if body is mob:
+		body.hurt()
 	queue_free()
