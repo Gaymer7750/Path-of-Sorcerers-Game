@@ -1,13 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://rqwxu2aqsp17"]
+[gd_scene load_steps=11 format=3 uid="uid://rqwxu2aqsp17"]
 
 [ext_resource type="Script" path="res://chest.gd" id="1_asvyk"]
 [ext_resource type="Texture2D" uid="uid://w4kafn2xajre" path="res://pickups/chest/chest_large_bottom.png" id="2_chefv"]
 [ext_resource type="Script" path="res://Scenes/Items.gd" id="2_dheth"]
 [ext_resource type="Texture2D" uid="uid://br78bw4ewb5gl" path="res://pickups/chest/chest_large_top.png" id="3_de24m"]
 [ext_resource type="Script" path="res://Scenes/healing.gd" id="3_uehov"]
-
-[sub_resource type="Resource" id="Resource_ybkrs"]
-script = ExtResource("2_dheth")
 
 [sub_resource type="Resource" id="Resource_k7kwd"]
 script = ExtResource("3_uehov")
@@ -78,7 +75,7 @@ _data = {
 
 [node name="Chest" type="Area2D"]
 script = ExtResource("1_asvyk")
-spawn = Array[ExtResource("2_dheth")]([SubResource("Resource_ybkrs"), SubResource("Resource_k7kwd")])
+spawn = Array[ExtResource("2_dheth")]([SubResource("Resource_k7kwd")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2.5, 5.5)

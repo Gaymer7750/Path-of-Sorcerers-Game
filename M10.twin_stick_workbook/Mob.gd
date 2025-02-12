@@ -39,7 +39,7 @@ func _physics_process(delta: float) -> void:
 		velocity = velocity.move_toward(desired_velocity, acceleration * delta)
 	move_and_slide()
 func get_global_player_position() -> Vector2:
-	return get_tree().root.get_node("Node2D/Player").global_position
+	return get_tree().root.get_node("Test2/Player").global_position
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

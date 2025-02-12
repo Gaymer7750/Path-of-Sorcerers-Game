@@ -1,0 +1,44 @@
+[gd_scene load_steps=9 format=4 uid="uid://cnxtoo8br2rdl"]
+
+[ext_resource type="PackedScene" uid="uid://dlxjrgals3rg2" path="res://levels/invisible_walls.tscn" id="1_1jjrr"]
+[ext_resource type="PackedScene" uid="uid://cq0mmphkbrvmm" path="res://levels/rooms/room_c.tscn" id="1_nhbif"]
+[ext_resource type="PackedScene" uid="uid://wdey00p3syru" path="res://levels/background/background_blue_sky.tscn" id="1_s1yao"]
+[ext_resource type="PackedScene" uid="uid://d3kfge1o8eknj" path="res://Scenes/test.tscn" id="2_awlxy"]
+[ext_resource type="PackedScene" uid="uid://bn11sffm7s2la" path="res://Scenes/Player.tscn" id="3_yk1ms"]
+[ext_resource type="PackedScene" uid="uid://c3fl3stluv0gn" path="res://levels/bridges.tscn" id="5_hdx4g"]
+[ext_resource type="PackedScene" uid="uid://dgayuh42w4v6u" path="res://levels/rooms/room_b.tscn" id="7_14beq"]
+[ext_resource type="PackedScene" uid="uid://cre5fhacxgs4e" path="res://mob.tscn" id="8_mvbvj"]
+
+[node name="Test2" type="Node2D"]
+y_sort_enabled = true
+
+[node name="RoomC" parent="." instance=ExtResource("1_nhbif")]
+position = Vector2(1792, -2232)
+
+[node name="InvisibleWalls" parent="." instance=ExtResource("1_1jjrr")]
+tile_map_data = PackedByteArray("AAAMAAUAAAAAAAAAAAANAAUAAAAAAAAAAAAOAAUAAAAAAAAAAAAOAAYAAAAAAAAAAAAPAAcAAAAAAAAAAAAQAAcAAAAAAAAAAAARAAcAAAAAAAAAAAAQAAUAAAAAAAAAAAAQAAQAAAAAAAAAAAAPAAMAAAAAAAAAAAAOAAMAAAAAAAAAAAANAAMAAAAAAAAAAAAMAAMAAAAAAAAAAAARAAUAAAAAAAAAAAAYAAAAAAAAAAAAAAAXAAAAAAAAAAAAAAAWAPr/AAABAAAAAAAYAPr/AAABAAAAAAAaAAAAAAAAAAAAAAAaAP//AAAAAAAAAAAZAP7/AAAAAAAAAAAYAP7/AAAAAAAAAAAYAP3/AAAAAAAAAAAYAPv/AAAAAAAAAAAYAPz/AAAAAAAAAAAWAPz/AAAAAAAAAAAWAP3/AAAAAAAAAAAWAPv/AAAAAAAAAAAWAP7/AAAAAAAAAAAWAP//AAAAAAAAAAA=")
+
+[node name="BackgroundBlueSky" parent="." instance=ExtResource("1_s1yao")]
+
+[node name="Node2D" parent="." instance=ExtResource("2_awlxy")]
+
+[node name="Player" parent="." instance=ExtResource("3_yk1ms")]
+position = Vector2(887, 675)
+
+[node name="Bridges" parent="." instance=ExtResource("5_hdx4g")]
+tile_map_data = PackedByteArray("AAALAAQAAAAAAAEAAAAMAAQAAAAAAAEAAAANAAQAAAAAAAEAAAAOAAQAAAAAAAEAAAAPAAQAAAAAAAEAAAAPAAUAAAAAAAEAAAAPAAYAAAAAAAEAAAAQAAYAAAAAAAEAAAARAAYAAAAAAAEAAAAZAAEAAAAAAAAAAAAZAAAAAAAAAAAAAAAZAP//AAAAAAAAAAAYAP//AAAAAAAAAAAXAP//AAAAAAAAAAAXAP7/AAAAAAAAAAAXAP3/AAAAAAAAAAAXAPz/AAAAAAAAAAAXAPv/AAAAAAAAAAAXAPr/AAAAAAAAAAAXAPn/AAAAAAAAAAA=")
+
+[node name="RoomB" parent="." instance=ExtResource("7_14beq")]
+position = Vector2(2318, 257)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("8_mvbvj")]
+position = Vector2(880, 248)
+
+[node name="CharacterBody2D2" parent="." instance=ExtResource("8_mvbvj")]
+position = Vector2(2560, 715)
+
+[node name="CharacterBody2D3" parent="." instance=ExtResource("8_mvbvj")]
+position = Vector2(536, 808)
+
+[node name="CharacterBody2D4" parent="." instance=ExtResource("8_mvbvj")]
+position = Vector2(1088, 992)
