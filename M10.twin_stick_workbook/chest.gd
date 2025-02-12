@@ -11,17 +11,20 @@ var is_open := false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-
-
+func _unhandled_input(event: InputEvent) -> void:
+	if is_player_near and event.is_action_pressed("interact") and not is_open:
+		oppen.play("open")
+		spawn_items()
+		is_open = true
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		is_player_near = true
-		spawn_items()
-	if is_open:
-		return
-	is_open = true
-	oppen.play("open")
-	print("fhfsd")
+		#spawn_items()
+	#if is_open:
+		#return
+	#is_open = true
+	#
+	#print("fhfsd")
 	
 
 func _on_body_exited(body: Node2D) -> void:
@@ -29,8 +32,8 @@ func _on_body_exited(body: Node2D) -> void:
 		is_player_near = false
 
 func spawn_items():
-	#if spawn == []:
-		#return
+	if spawn == []:
+		return
 	var item: Item = spawn.pick_random()
 	var pickup: Pickup = preload("res://Scenes/pickup.tscn").instantiate()
 	pickup.item = item
